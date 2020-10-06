@@ -30,7 +30,7 @@
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
-                <tr>
+                <tr id="191 MO 123">
                     <td>191 MO 123</td>
                     <td>Ford</td>
                     <td>Modeo</td>
@@ -38,7 +38,7 @@
                     <td><button onclick="showUpdate(this)">update</button></td>
                     <td><button>delete</button></td>
                 </tr>
-                <tr>
+                <tr id="12 D 123">
                     <td>12 D 123</td>
                     <td>Fiat</td>
                     <td>Punto</td>
@@ -46,7 +46,7 @@
                     <td><button onclick="showUpdate(this)">update</button></td>
                     <td><button>delete</button></td>
                 </tr>
-                <tr>
+                <tr id="08 G 123">
                     <td>08 G 123</td>
                     <td>Nissan</td>
                     <td>Almera</td>
@@ -83,7 +83,7 @@
                 document.getElementById('doUpdateButton').style.display = "none"
             }
 
-            function showUpdate(){
+            function showUpdate(buttonElement){
                 document.getElementById('showCreateButton').style.display="none"
                 document.getElementById('carTable').style.display = "none"
                 document.getElementById('createUpdateForm').style.display = "block"
@@ -93,6 +93,12 @@
 
                 document.getElementById('doCreateButton').style.display = "none"
                 document.getElementById('doUpdateButton').style.display = "block"
+
+                var rowElement = buttonElement.parentNode.parentNode
+                // this is a way of finding the closest <tr> which would be safer, closest()
+
+                var car = getCarFromRow(rowElement)
+                populateFormWithCar(car)
             }
 
             function doCreate(){
@@ -169,6 +175,20 @@
                 form.querySelector('input[name="model"]').value = car.model
                 form.querySelector('input[name="price"]').value = car.price
             }
+
+            function getCarFromForm() {
+                var form = document.getElementById('createUpdateForm')
+                var car = {}
+                car.reg = form.querySelector('input[name="reg"]').value
+                car.make = form.querySelector('select[name="make"]').value
+                car.model = form.querySelector('input[name="model"]').value
+                car.price = form.querySelector('input[name="price"]').value
+                console.log(JSON.stringify(car))
+                return car
+            }
+
+
+
         </script>
     </body>
 </html>
