@@ -151,6 +151,15 @@
                 cell6.innerHTML = '<button onclick="doDelete(this)">delete</button>'
             }
 
+            function getCarFromRow(rowElement){
+                var car ={}
+                car.reg = rowElement.cells[0].firstChild.textContent
+                car.make = rowElement.cells[1].firstChild.textContent
+                car.model = rowElement.cells[2].firstChild.textContent
+                car.price = rowElement.cells[3].firstChild.textContent
+                return car
+            }
+
         </script>
     </body>
 </html>
