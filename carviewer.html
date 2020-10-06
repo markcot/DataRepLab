@@ -66,8 +66,8 @@
             </select> <br/>
             Model <input type="text" class="form-control" name="model"/> <br/>
             Price <input type="number" class="form-control" name="price"/> <br/>
-            <span id="doCreateButton"><button>Create</button></span>
-            <span id="doUpdateButton"><button>Update</button></span>
+            <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+            <span><button id="doUpdateButton">Update</button></span>
         </div>
 
         <script>
@@ -93,6 +93,10 @@
 
                 document.getElementById('doCreateButton').style.display = "none"
                 document.getElementById('doUpdateButton').style.display = "block"
+            }
+
+            function doCreate(){
+
             }
 
         </script>
