@@ -96,7 +96,15 @@
             }
 
             function doCreate(){
-                // other code here
+                var form = document.getElementById('createUpdateForm')
+
+                var car = {}
+                car.reg = form.querySelector('input[name="reg"]').value
+                car.make = form.querySelector('input[name="make"]').value
+                car.model = form.querySelector('input[name="model"]').value
+                car.price = form.querySelector('input[name="price"]').value
+                console.log(JSON.stringify(car))
+                
                 clearForm()
                 showViewAll()
             }
