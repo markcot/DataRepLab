@@ -96,6 +96,8 @@
             }
 
             function doCreate(){
+                // other code here
+                clearForm()
                 showViewAll()
             }
 
@@ -109,7 +111,16 @@
 
                 document.getElementById('doCreateButton').style.display = "block"
                 document.getElementById('doUpdateButton').style.display = "none"
+            }
 
+            function clearForm(){
+                var form = document.getElementById('createUpdateForm')
+
+                form.querySelector('input[name="reg"]').disabled = false
+                form.querySelector('input[name="reg"]').value =''
+                form.querySelector('input[name="make"]').value =''
+                form.querySelector('input[name="model"]').value =''
+                form.querySelector('input[name="price"]').value =''
             }
 
         </script>
