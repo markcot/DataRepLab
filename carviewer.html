@@ -56,7 +56,7 @@
                 </tr>
             </table>
         </div>
-        <h2><span id="createLabel">Create a</span> <span>Update this</span> Car</h2>
+        <h2><span id="createLabel">Create a</span> <span id="updateLabel">Update this</span> Car</h2>
         <div class="form-group">
             Reg <input type="text" class="form-control" name="reg"/> <br/>
             Make <select name="make" class="form-control">
@@ -75,6 +75,13 @@
                 document.getElementById('showCreateButton').style.display="none"
                 document.getElementById('carTable').style.display = "none"
                 document.getElementById('showCreateButton').style.display = "block"
+
+                document.getElementById('createLabel').style.display = "inline"
+                document.getElementById('updateLabel').style.display = "none"
+
+                document.getElementById('doCreateButton').style.display = "block"
+                document.getElementById('doUpdateButton').style.display = "none"
+
             }
         </script>
     </body>
