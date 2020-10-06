@@ -34,7 +34,7 @@
                     <td>191 MO 123</td>
                     <td>Ford</td>
                     <td>Modeo</td>
-                    <td>25,000</td>
+                    <td>25000</td>
                     <td><button onclick="showUpdate(this)">update</button></td>
                     <td><button onclick="doDelete(this)">delete</button></td>
                 </tr>
@@ -42,7 +42,7 @@
                     <td>12 D 123</td>
                     <td>Fiat</td>
                     <td>Punto</td>
-                    <td>4,000</td>
+                    <td>4000</td>
                     <td><button onclick="showUpdate(this)">update</button></td>
                     <td><button onclick="doDelete(this)">delete</button></td>
                 </tr>
@@ -118,14 +118,14 @@
             }
 
             function showViewAll(){
-                document.getElementById('showCreateButton').style.display = "none"
+                document.getElementById('showCreateButton').style.display = "block"
                 document.getElementById('carTable').style.display = "block"
-                document.getElementById('createUpdateForm').style.display = "block"
+                document.getElementById('createUpdateForm').style.display = "none"
 
-                document.getElementById('createLabel').style.display = "inline"
+                document.getElementById('createLabel').style.display = "none"
                 document.getElementById('updateLabel').style.display = "none"
 
-                document.getElementById('doCreateButton').style.display = "block"
+                document.getElementById('doCreateButton').style.display = "none"
                 document.getElementById('doUpdateButton').style.display = "none"
             }
 
@@ -146,11 +146,11 @@
                 var cell1 = rowElement.insertCell(0);
                 cell1.innerHTML = car.reg
                 var cell2 = rowElement.insertCell(1);
-                cell2.innerHTML = car.reg
+                cell2.innerHTML = car.make
                 var cell3 = rowElement.insertCell(2);
-                cell3.innerHTML = car.reg
+                cell3.innerHTML = car.model
                 var cell4 = rowElement.insertCell(3);
-                cell4.innerHTML = car.reg
+                cell4.innerHTML = car.price
                 var cell5 = rowElement.insertCell(4);
                 cell5.innerHTML = '<button onclick="showUpdate(this)">update</button>'
                 var cell6 = rowElement.insertCell(5);
