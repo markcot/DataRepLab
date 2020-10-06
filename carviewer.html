@@ -17,7 +17,7 @@
     </head>
     <body>
         <h1>Cars</h1>
-        <div id='createUpdateForm' style="display: none">
+        <div>
             <button id="showCreateButton" onclick="showCreate()">Create</button>
         </div>
         <div>
@@ -57,7 +57,7 @@
             </table>
         </div>
         <h2><span id="createLabel">Create a</span> <span id="updateLabel">Update this</span> Car</h2>
-        <div class="form-group">
+        <div class="form-group" id='createUpdateForm' style="display: none">
             Reg <input type="text" class="form-control" name="reg"/> <br/>
             Make <select name="make" class="form-control">
                 <option value="Ford">Ford</option>
@@ -104,7 +104,7 @@
                 car.model = form.querySelector('input[name="model"]').value
                 car.price = form.querySelector('input[name="price"]').value
                 console.log(JSON.stringify(car))
-                
+
                 clearForm()
                 showViewAll()
             }
