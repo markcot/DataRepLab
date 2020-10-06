@@ -160,6 +160,15 @@
                 return car
             }
 
+            function populateFormWithCar(car) {
+                var form = document.getElementById('createUpdateForm')
+                form.querySelector('input[name="reg"]').disabled = true
+
+                form.querySelector('input[name="reg"]').value = car.reg
+                form.querySelector('select[name="make"]').value = car.make
+                form.querySelector('input[name="model"]').value = car.model
+                form.querySelector('input[name="price"]').value = car.price
+            }
         </script>
     </body>
 </html>
