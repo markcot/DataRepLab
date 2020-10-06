@@ -18,7 +18,7 @@
     <body>
         <h1>Cars</h1>
         <div id='createUpdateForm' style="display: none">
-            <button id="showCreateButton">Create</button>
+            <button id="showCreateButton" onclick="showCreate()">Create</button>
         </div>
         <div>
             <table class="table" id ="carTable">
@@ -56,7 +56,7 @@
                 </tr>
             </table>
         </div>
-        <h2><span>Create a</span> <span>Update this</span> Car</h2>
+        <h2><span id="createLabel">Create a</span> <span>Update this</span> Car</h2>
         <div class="form-group">
             Reg <input type="text" class="form-control" name="reg"/> <br/>
             Make <select name="make" class="form-control">
@@ -66,8 +66,8 @@
             </select> <br/>
             Model <input type="text" class="form-control" name="model"/> <br/>
             Price <input type="number" class="form-control" name="price"/> <br/>
-            <span><button>Create</button></span>
-            <span><button>Update</button></span>
+            <span id="doCreateButton"><button>Create</button></span>
+            <span id="doUpdateButton"><button>Update</button></span>
         </div>
 
         <script>
