@@ -67,7 +67,7 @@
             Model <input type="text" class="form-control" name="model"/> <br/>
             Price <input type="number" class="form-control" name="price"/> <br/>
             <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
-            <span><button id="doUpdateButton">Update</button></span>
+            <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
         </div>
 
         <script>
@@ -204,7 +204,7 @@
             }
 
             function doDelete(r){
-                var TableElement = document.getElementById('carTable')
+                var tableElement = document.getElementById('carTable')
                 var index = r.parentNode.parentNode.rowIndex;
                 tableElement.deleteRow(index);
             }
