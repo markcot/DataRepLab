@@ -9,5 +9,7 @@ for row in rows:
     print("------")
     #print(row)
     cols = row.findAll("td")
+    dataList = []
     for col in cols:
-        print(col.text)
+        dataList.append(col.text)
+    print(dataList)
