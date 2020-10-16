@@ -11,4 +11,6 @@ soup = BeautifulSoup(page.content, 'xml')
 listings = soup.findAll("objTrainPositions")
 
 for listing in listings:
-    print(listing)
+    #print(listing)
+    print(listing.TrainLatitude.string)
+    #print(listing.find('TrainLatitude').string)
