@@ -8,3 +8,6 @@ listings = soup.find("div", class_="PropertyListingCard")
 
 price = listings.find(class_="PropertyListingCard__Price").text
 print(price)
+
+address = listings.find(class_="PropertyListingCard__Address").text
+print(address)
