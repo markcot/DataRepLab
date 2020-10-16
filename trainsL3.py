@@ -8,16 +8,21 @@ page = requests.get(url)
 soup = BeautifulSoup(page.content, 'xml')
 #print(soup.prettify())
 
+retrieveTags=[ 'TrainStatus', 'TrainLatitude', 'TrainLongitude', 'TrainCode',
+                'TrainDate', 'PublicMessage', 'Direction' ]
+
 with open('week03_train.csv', mode='w') as train_file:
-    train_writer = csv.writer(train_file, delimiter='\t', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    train_writer = csv.writer(train_file, delimiter='\t',
+                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
     listings = soup.findAll("objTrainPositions")
 
     for listing in listings:
         #print(listing)
         #print(listing.TrainLatitude.string)
-        #print(listing.find('TrainLatitude').string)
-
+        
         entryList = []
-        entryList.append(listing.find('TrainLatitude').string)
+        for retrieveTag in retrieveTags:
+            #print(listing.find('TrainLatitude').string)
+            entryList.append(listing.find(retrieveTag).string)
         train_writer.writerow(entryList)
