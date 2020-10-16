@@ -15,6 +15,9 @@ for row in rows:
     cols = row.findAll("td")
     dataList = []
     for col in cols:
-        dataList.append(col.text)
+        if col.text == "update" or col.text == "delete":
+            pass
+        else:
+            dataList.append(col.text)
     employee_writer.writerow(dataList)
 employee_file.close()
