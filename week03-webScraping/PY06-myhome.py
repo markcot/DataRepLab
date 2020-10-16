@@ -6,4 +6,5 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 listings = soup.find("div", class_="PropertyListingCard")
 
-print(listings)
+price = listings.find(class_="PropertyListingCard__Price").text
+print(price)
