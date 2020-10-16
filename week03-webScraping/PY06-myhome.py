@@ -4,10 +4,14 @@ page = requests.get("https://www.myhome.ie/residential/mayo/property-for-sale?pa
 
 soup = BeautifulSoup(page.content, 'html.parser')
 
-listings = soup.find("div", class_="PropertyListingCard")
+listings = soup.findAll("div", class_="PropertyListingCard")
 
-price = listings.find(class_="PropertyListingCard__Price").text
-print(price)
+for listing in listings:
+    entry = []
 
-address = listings.find(class_="PropertyListingCard__Address").text
-print(address)
+    price = listing.find(class_="PropertyListingCard__Price").text
+    entry.append(price)
+    address = listing.find(class_="PropertyListingCard__Address").text
+    entry.append(address)
+
+    print(entry)
