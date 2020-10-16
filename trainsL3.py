@@ -20,9 +20,11 @@ with open('week03_train.csv', mode='w') as train_file:
     for listing in listings:
         #print(listing)
         #print(listing.TrainLatitude.string)
-        
-        entryList = []
-        for retrieveTag in retrieveTags:
-            #print(listing.find('TrainLatitude').string)
-            entryList.append(listing.find(retrieveTag).string)
-        train_writer.writerow(entryList)
+        lat =float(listing.TrainLatitude.string)
+        if (lat < 53.4):
+            
+            entryList = []
+            for retrieveTag in retrieveTags:
+                #print(listing.find('TrainLatitude').string)
+                entryList.append(listing.find(retrieveTag).string)
+            train_writer.writerow(entryList)
