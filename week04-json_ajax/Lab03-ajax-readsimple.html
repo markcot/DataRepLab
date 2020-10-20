@@ -14,18 +14,18 @@
 <script>
    function readJSON() {
       $.ajax({
-         "url":"https://api.coindesk.com/v1/bpi/currentprice.json",
+         "url":"https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR ",
          "method":"GET",
          "data":"",
          "dataType":"JSON",
          "success":function(result){
-            //console.log(result);
-            var rateEUR = result.bpi.EUR.rate
-            var rateGBP = result.bpi.GBP.rate
-            var rateUSD = result.bpi.USD.rate
-            //console.log(rate);
-            document.getElementById("output1").innerText = "€"+rateEUR;
-            document.getElementById("output2").innerText = "£"+rateGBP;
+            console.log(result);
+            //var rateEUR = result.bpi.EUR.rate
+            //var rateGBP = result.bpi.GBP.rate
+            var rateUSD = result.USD
+            //console.log(rateUSD);
+            //document.getElementById("output1").innerText = "€"+rateEUR;
+            //document.getElementById("output2").innerText = "£"+rateGBP;
             document.getElementById("output3").innerText = "$"+rateUSD;
          },
          "error": function (xhr,status,error){
