@@ -1,0 +1,29 @@
+<html>
+
+<head>
+   <title>Read a simple json</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+   <button onclick="readJSON()">go</button>
+</body>
+<script>
+   function readJSON() {
+      $.ajax({
+         "url":"https://api.coindesk.com/v1/bpi/currentprice.json",
+         "method":"GET",
+         "data":"",
+         "dataType":"JSON",
+         "success":function(result){
+            console.log(result);
+         },
+         "error": function (xhr,status,error){
+            console.log("error: "+status+" msg:"+error);
+         },
+      });
+      
+   }
+</script>
+
+</html>
