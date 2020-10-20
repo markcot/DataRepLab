@@ -16,7 +16,9 @@
          "data":"",
          "dataType":"JSON",
          "success":function(result){
-            console.log(result);
+            //console.log(result);
+            var rate = result.bpi.EUR.rate
+            console.log(rate);
          },
          "error": function (xhr,status,error){
             console.log("error: "+status+" msg:"+error);
