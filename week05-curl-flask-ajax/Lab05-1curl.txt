@@ -1,0 +1,62 @@
+Q1
+curl google.com
+
+RETURN:
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/">here</A>.
+</BODY></HTML>
+
+Q2
+curl -i google.com
+
+RETURN:
+HTTP/1.1 301 Moved Permanently
+Location: http://www.google.com/
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 26 Oct 2020 08:58:49 GMT
+Expires: Wed, 25 Nov 2020 08:58:49 GMT
+Cache-Control: public, max-age=2592000
+Server: gws
+Content-Length: 219
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+
+<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<TITLE>301 Moved</TITLE></HEAD><BODY>
+<H1>301 Moved</H1>
+The document has moved
+<A HREF="http://www.google.com/">here</A>.
+</BODY></HTML>
+
+Q3a
+curl http://andrewbeatty1.pythonanywhere.com/books
+
+RETURN:
+[{"Author":"34","Price":34,"Title":"34","id":10},{"Author":"234","Price":214,"Title":"ee'234'","id":11},{"Author":"FA","Price":4000,"Title":"myBook","id":12},{"Author":"jk","Price":8888,"Title":"test","id":16},{"Author":"rt","Price":1999,"Title":"I DID IT","id":19},{"Author":"xxx","Price":2000,"Title":"xxx","id":21},{"Author":"Chris C","Price":999,"Title":"Curl For Dummies","id":27},{"Author":"Chris C","Price":777,"Title":"Curl For Dummies Edition 2","id":28},{"Author":"Chris C","Price":777,"Title":"Acing The Curl Class An Autobiography of Chris Collins 2","id":29},{"Author":"Eoin Dowling","Price":20,"Title":"Testing the Mighty Curl","id":34},{"Author":"blah blah","Price":2000,"Title":"blah","id":36},{"Author":"Mount","Price":3000,"Title":"Curl Programming Bible","id":42},{"Author":"Eoin","Price":10000001,"Title":"Getting Q4 to work","id":46},{"Author":"Donal","Price":3000,"Title":"Curl Unfurled","id":52}]
+
+Q3b
+curl http://andrewbeatty1.pythonanywhere.com/books/9
+
+RETURN:
+{}
+
+Q4
+curl -H "Content-Type:application/json" -X POST -d "{\"Title\":\"xxx\",\"Author\":\"xxx\",\"Price\":3000}" http://andrewbeatty1.pythonanywhere.com/books
+
+RETURN:
+{"Author":"xxx","Price":3000,"Title":"xxx","id":53}
+
+Q5
+curl -H "Content-Type:application/json" -X PUT -d "{\"Price\":2000}" http://andrewbeatty1.pythonanywhere.com/books/53
+
+RETURN:
+{"Author":"xxx","Price":2000,"Title":"xxx","id":53}
+
+Q6
+curl -X DELETE http://andrewbeatty1.pythonanywhere.com/books/53
+
+RETURN:
+{"done":true}
