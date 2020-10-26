@@ -8,7 +8,7 @@
    <body>
       <button onclick="getAll()">getAll</button>
       <div id="output"></div>
-      <table>
+      <table id="carTable">
          <tr>
             <th>reg</th><th>make</th>model<th>price</th><th></th><th></th><th></th>
          </tr>
@@ -25,7 +25,18 @@
             success:function(result){
                //console.log(result);
                for (car of result.cars){
-                  console.log(car);
+                  //console.log(car);
+                  var tableElement = document.getElementById('carTable')
+                  var rowElement = tableElement.insertRow(-1)
+                  rowElement.setAttribute('id', car.reg)
+                  var cell1 = rowElement.insertCell(0);
+                  cell1.innerHTML = car.reg
+                  var cell2 = rowElement.insertCell(1);
+                  cell2.innerHTML = car.make
+                  var cell3 = rowElement.insertCell(2);
+                  cell3.innerHTML = car.model
+                  var cell4 = rowElement.insertCell(3);
+                  cell4.innerHTML = car.price
                }
             },
             error:function(xhr,status,error){
