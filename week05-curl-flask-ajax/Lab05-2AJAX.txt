@@ -1,0 +1,92 @@
+Q14a - RETURNS
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 349
+Server: Werkzeug/1.0.1 Python/3.8.3
+Date: Mon, 26 Oct 2020 14:53:16 GMT
+
+{
+  "cars": [
+    {
+      "make": "Ford",
+      "model": "Modeo",
+      "price": 18000,
+      "reg": "181 G 1234"
+    },
+    {
+      "make": "Nissan",
+      "model": "Almera",
+      "price": 8000,
+      "reg": "11 MO 1234"
+    },
+    {
+      "make": "Nissan",
+      "model": "Almera",
+      "price": 8000,
+      "reg": "test"
+    }
+  ]
+}
+
+Q14b - RETURNS
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 104
+Server: Werkzeug/1.0.1 Python/3.8.3
+Date: Mon, 26 Oct 2020 14:53:34 GMT
+
+{
+  "car": {
+    "make": "Nissan",
+    "model": "Almera",
+    "price": 8000,
+    "reg": "test"
+  }
+}
+
+Q14c - RETURNS
+HTTP/1.0 201 CREATED
+Content-Type: application/json
+Content-Length: 106
+Server: Werkzeug/1.0.1 Python/3.8.3
+Date: Mon, 26 Oct 2020 15:00:05 GMT
+
+{
+  "car": {
+    "make": "Fiat",
+    "model": "Punto",
+    "price": 3000,
+    "reg": "12 D 1234"
+  }
+}
+
+Q14d - RETURNS
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 110
+Server: Werkzeug/1.0.1 Python/3.8.3
+Date: Mon, 26 Oct 2020 15:03:16 GMT
+
+{
+  "car": {
+    "make": "Fiesta",
+    "model": "Modeo",
+    "price": 18000,
+    "reg": "181 G 1234"
+  }
+}
+
+Q14e - RETURNS
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 21
+Server: Werkzeug/1.0.1 Python/3.8.3
+Date: Mon, 26 Oct 2020 15:04:37 GMT
+
+{
+  "result": true
+}
+
+
+
+
