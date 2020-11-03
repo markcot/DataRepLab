@@ -166,7 +166,7 @@
                 car.reg = rowElement.cells[0].firstChild.textContent
                 car.make = rowElement.cells[1].firstChild.textContent
                 car.model = rowElement.cells[2].firstChild.textContent
-                car.price = rowElement.cells[3].firstChild.textContent
+                car.price = parseInt(rowElement.cells[3].firstChild.textContent,10)
                 return car
             }
 
@@ -186,7 +186,7 @@
                 car.reg = form.querySelector('input[name="reg"]').value
                 car.make = form.querySelector('select[name="make"]').value
                 car.model = form.querySelector('input[name="model"]').value
-                car.price = form.querySelector('input[name="price"]').value
+                car.price = parseInt(form.querySelector('input[name="price"]').value,10)
                 // console.log(JSON.stringify(car))
                 return car
             }
@@ -200,11 +200,10 @@
 
             function doUpdate(){
                 var car = getCarFromForm();
-
                 var rowElement = document.getElementById(car.reg);
+                updateCar(car)
                 setCarInRow(rowElement,car)
                 console.log(car.reg)
-                updateCar(car)
 
                 clearForm()
                 showViewAll()
@@ -260,16 +259,18 @@
             }
 
             function updateCar(car) {
-                var reg = car.reg;
-                var update = car;
-                delete update["reg"]
-                console.log("update for " + reg + " is " + JSON.stringify(update));
+                // var reg = car.reg;
+                // var update = car;
+                // delete update["reg"]
+                // console.log("update for " + reg + " is " + JSON.stringify(update)
+                console.log(JSON.stringify(car)
+                );
                 // var car = { "reg": "181 G 1234", "make": "Ford", "model": "Modeo", "price": 00 }
                 // console.log(JSON.stringify(car));
                 $.ajax({
-                    url: "cars/" + encodeURI(reg),
+                    url: "cars/" + encodeURI(car.reg),
                     method: "PUT",
-                    data: JSON.stringify(update),
+                    data: JSON.stringify(car),
                     dataType: "JSON",
                     contentType: "application/json; charset utf-8",
                     success: function (result) {
