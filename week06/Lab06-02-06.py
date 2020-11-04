@@ -3,8 +3,8 @@ import json
 
 
 # remove the minus sign
-apiKey = '7aa146eafee094d3a7b1e81aa1d8fcb0eec8b91-0'
-url = 'https://api.github.com/repos/datarepresentationstudent/aPrivateOne'
+apiKey = 'b4ddb9e5603dallcd857b83bad6ea6eb1819b92d'
+url = 'https://api.github.com/datarepresentationstudent/aPrivateOne'
 filename = "repo.json"
 
 response = requests.get(url, auth=('token',apiKey))
