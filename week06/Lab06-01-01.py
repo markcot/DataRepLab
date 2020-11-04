@@ -7,3 +7,6 @@ data = response.json()
 
 #output to console
 print(data)
+
+for car in data["cars"]:
+   print(car)
