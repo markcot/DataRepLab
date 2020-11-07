@@ -14,4 +14,4 @@ repoJSON = response.json()
 #print(repoJSON[0])
 
 file = open(filename, 'w')
-json.dump(repoJSON["full_name"=="datarepresentationstudent/aPrivateOne"], file, indent=4)
+json.dump(repoJSON[0], file, indent=4)

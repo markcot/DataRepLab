@@ -1,26 +1,31 @@
 import requests
 import json
 
-# remove the '-'
-# url = 'https://api.github.com/datarepresentationstudent/Hello'
-# apiKey = 'b4ddb9e5603dallcd857b83bad6ea6eb1819b92-d'
-url = 'https://api.github.com/markcot/aPrivateOne'
-apiKey = '0c514b26b9551d8265b44c89b583b45a41e3009-e'
+# remove the minus sign
+apiKey = '71b89bdc0378f2330931041ef2f2fc5730433365'
+url = 'https://api.github.com/user/repos'
 
 
-# Create text file for upload to Github
-filename = "Lab06-02-08-text.txt"
-filetext = "hello text content"
+# Test content of Hello file
+tempfilename = "repo2.json"
+response = requests.get(url, auth=('token',apiKey))
+repoJSON = response.json()
+print("Github repo name:", repoJSON[1]["full_name"])
 
-# Create/override text file and write text content to the file
-with open(filename, 'w') as f:
-   f.write(filetext)
+# Update description of Hello repository
+repoJSON[1]["description"] = "MC test"
+# Test output of changes to file
+file = open(tempfilename, 'w')
+json.dump(repoJSON[1], file, indent=4)
 
-# Read the text content of the file
-with open(filename, 'r') as f:
-   html = f.read()
-   print(html)
+# Upload changed data to Github
+# data = {'json': repoJSON[1]["description": "MC test"], 'apiKey': apiKey}
+# response = requests.put(url, json=data)
+# print(response.status_code)
 
+# Test of post to git url
+git_url = 'git://github.com/datarepresentationstudent/Hello.git'
+html = {"test":1234}
 data = {'html': html, 'apiKey': apiKey}
 response = requests.post(url, json=data)
 print(response.status_code)
