@@ -11,6 +11,7 @@ response = requests.get(url, auth=('token',apiKey))
 
 repoJSON = response.json()
 #print(response.json())
+#print(repoJSON[0])
 
 file = open(filename, 'w')
-json.dump(repoJSON, file, indent=4)
+json.dump(repoJSON["full_name"=="datarepresentationstudent/aPrivateOne"], file, indent=4)
