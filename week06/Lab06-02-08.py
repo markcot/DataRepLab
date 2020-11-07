@@ -1,4 +1,5 @@
 import requests
+import json
 
 # remove the '-'
 # url = 'https://api.github.com/datarepresentationstudent/Hello'
@@ -17,8 +18,10 @@ with open(filename, 'w') as f:
 
 # Read the text content of the file
 with open(filename, 'r') as f:
-   print(f.read())
+   html = f.read()
+   print(html)
 
-response = requests.post(url, data='.\Lab06-02-08-text.txt', auth=('token',apiKey))
+data = {'html': html, 'apiKey': apiKey}
+response = requests.post(url, json=data)
+print(response.status_code)
 
-print(response.text)
