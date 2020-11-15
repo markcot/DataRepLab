@@ -50,15 +50,32 @@ def create():
    return jsonify(book)
 
 # update
+#curl -H "Content-Type:application/json" -X PUT -d "{\"Title\":\"new Title\", \"Price\":999}" http://127.0.0.1:5000/books/1
 @app.route('/books/<int:id>', methods=['PUT'])
 def update(id):
-   return "served by update with id " + str(id)
-
+   foundBooks = list(filter(lambda t: t["id"] == id, books))
+   if len(foundBooks) == 0:
+      return jsonify({}), 404
+   currentBook = foundBooks[0]
+   if 'Title' in request.json:
+      currentBook['Title'] = request.json["Title"]
+   if 'Author' in request.json:
+      currentBook['Author'] = request.json["Author"]
+   if 'Price' in request.json:
+      currentBook['Price'] = request.json["Price"]
+   
+   return jsonify(currentBook)
+   
 # delete
-# curl -X DELETE http://127.0.0.1:5000/books/4
+#curl -X DELETE http://127.0.0.1:5000/books/1
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete(id):
-   return "served by delete with id " + str(id)
+   foundBooks = list(filter(lambda t: t["id"] == id, books))
+   if len(foundBooks) == 0:
+      return jsonify({}), 404
+   books.remove(foundBooks[0])
+
+   return jsonify({"done":True})
 
 if __name__ == "__main__":
    app.run(debug=True)
