@@ -20,9 +20,13 @@ def getAll():
    return jsonify(books)
 
 # find By id
+#curl http://127.0.0.1:5000/books/1
 @app.route('/books/<int:id>')
 def findById(id):
-   return "served by find by id with id " + str(id)
+   foundBooks = list(filter (lambda t : t["id"]==id, books))
+   if len(foundBooks) == 0:
+      return jsonify({}), 204
+   return jsonify(foundBooks[0])
 
 # create
 @app.route('/books', methods=['POST'])
