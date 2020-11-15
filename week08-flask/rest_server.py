@@ -29,9 +29,25 @@ def findById(id):
    return jsonify(foundBooks[0])
 
 # create
+# This results in a 400 bad request due to abort not json object type
+#curl -X POST -d "{\"id\":4, \"Title\":\"test\", \"Author\":\"some guy\", \"Price\":123}" http://127.0.0.1:5000/books
+# This results in a 200 OK request as object type is json
+#curl -H "Content-Type:application/json" -X POST -d "{\"id\":4, \"Title\":\"test\", \"Author\":\"some guy\", \"Price\":123}" http://127.0.0.1:5000/books
 @app.route('/books', methods=['POST'])
 def create():
-   return "served by Create"
+   global nextId
+   if not request.json:
+      abort(400)
+
+   book = {
+      "id": nextId,
+      "Title": request.json["Title"],
+      "Author": request.json["Author"],
+      "Price": request.json["Price"]
+   }
+   books.append(book)
+   nextId += 1
+   return jsonify(book)
 
 # update
 @app.route('/books/<int:id>', methods=['PUT'])
@@ -39,6 +55,7 @@ def update(id):
    return "served by update with id " + str(id)
 
 # delete
+# curl -X DELETE http://127.0.0.1:5000/books/4
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete(id):
    return "served by delete with id " + str(id)
